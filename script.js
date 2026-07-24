@@ -8,6 +8,17 @@ const durationInput = document.getElementById('duration');
 let currentProduct = '';
 let currentBasePrice = 1.79;
 
+// ===== PANEL BUTTONS CONFIGURATION =====
+// To make a button show "Live" (green badge), set live: true
+// To make a button show "Expired" (red badge), set live: false
+const panelButtons = [
+  { name: "Internal 1", url: "https://drive.google.com/drive/folders/1EebmRoxPVXLrwJyoY229M0vwU-vlnZ0y?usp=sharing", live: true },
+  { name: "Internal 2", url: "https://drive.google.com/drive/folders/1U9-_H6h7u8KGftu7gbIbKYoStfgeV-QC?usp=sharing", live: false },
+  { name: "External Beta FF", url: "https://drive.google.com/drive/folders/1aws5cqy_liGOyKmxA4Mx58oKNYl-NXU7?usp=sharing", live: false },
+  { name: "External Panel", url: "https://drive.google.com/drive/folders/1A4yk5HU1Sz3k3AkyXAMpbdyJw_OhgnMi?usp=sharing", live: false }
+];
+// ========================================
+
 function openBuyModal(productName, description, basePrice) {
     currentProduct = productName;
     currentBasePrice = parseFloat(basePrice);
@@ -120,11 +131,39 @@ function handleYouTubeClick() {
     setTimeout(openYouTubeChannel, 500);
 }
 
+function renderPanelButtons() {
+    const container = document.getElementById('panelButtons');
+    container.innerHTML = '';
+    
+    panelButtons.forEach(function(btn) {
+        const wrapper = document.createElement('div');
+        wrapper.className = 'expired-btn-wrapper';
+        if (container.children.length > 0) {
+            wrapper.style.marginTop = '10px';
+        }
+        
+        const link = document.createElement('a');
+        link.href = btn.url;
+        link.className = 'download-btn';
+        link.target = '_blank';
+        link.textContent = btn.name;
+        wrapper.appendChild(link);
+        
+        const badge = document.createElement('span');
+        badge.className = btn.live ? 'live-badge' : 'expired-badge';
+        badge.textContent = btn.live ? 'Live' : 'Expired';
+        wrapper.appendChild(badge);
+        
+        container.appendChild(wrapper);
+    });
+}
+
 function checkSubscription() {
     if (!isSubscribed) {
         alert('Please subscribe to our YouTube channel first!');
         return;
     }
+    renderPanelButtons();
     document.getElementById('unlockSuccess').style.display = 'block';
     document.getElementById('unlockBtn').disabled = true;
 }
