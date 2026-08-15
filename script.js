@@ -12,10 +12,10 @@ let currentBasePrice = 1.79;
 // To make a button show "Live" (green badge), set live: true
 // To make a button show "Expired" (red badge), set live: false
 const panelButtons = [
-  { name: "Internal 1", url: "https://drive.google.com/drive/folders/1EebmRoxPVXLrwJyoY229M0vwU-vlnZ0y?usp=sharing", live: true },
+  { name: "Internal 1", url: "https://drive.google.com/drive/folders/1EebmRoxPVXLrwJyoY229M0vwU-vlnZ0y?usp=sharing", live: false },
   { name: "Internal 2", url: "https://drive.google.com/drive/folders/1U9-_H6h7u8KGftu7gbIbKYoStfgeV-QC?usp=sharing", live: false },
   { name: "External Beta FF", url: "https://drive.google.com/drive/folders/1aws5cqy_liGOyKmxA4Mx58oKNYl-NXU7?usp=sharing", live: false },
-  { name: "External Panel", url: "https://drive.google.com/drive/folders/1A4yk5HU1Sz3k3AkyXAMpbdyJw_OhgnMi?usp=sharing", live: false }
+  { name: "External Panel", url: "https://drive.google.com/drive/folders/1A4yk5HU1Sz3k3AkyXAMpbdyJw_OhgnMi?usp=sharing", live: true }
 ];
 // ========================================
 
