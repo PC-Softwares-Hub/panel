@@ -60,7 +60,7 @@ function redirectToDiscord() {
     const days = parseInt(durationInput.value);
     const price = (currentBasePrice * days / 15).toFixed(2);
     alert(`Order: ${currentProduct}\nDuration: ${days} days\nPrice: $${price}\n\nRedirecting to Discord...`);
-    window.open('https://discord.gg/CstwWEXeZF', '_blank');
+    window.open('https://discord.gg/zxASpmfNMk', '_blank');
     closeModal();
 }
 
